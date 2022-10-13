@@ -13,14 +13,16 @@ namespace LinqUniTestTestTest
             string[] arr1 = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
 
             List<string> expected = new List<string>();
-            expected.Add("1 File(s) with frx Extension");
-            expected.Add("1 File(s) with TXT Extension");
-            expected.Add("1 File(s) with dbf Extension");
-            expected.Add("1 File(s) with pdf Extension");
-            expected.Add("1 File(s) with PDF Extension");
-            expected.Add("1 File(s) with frt Extension");
-            expected.Add("1 File(s) with xml Extension");
-            expected.Add("2 File(s) with txt Extension");
+            expected.Add("X1");
+            //expected.Add("X2");
+            //expected.Add("X3");
+            //expected.Add("Y1");
+            expected.Add("Y2");
+            //expected.Add("Y3");
+            //expected.Add("Z1");
+            //expected.Add("Z2");
+            expected.Add("Z3");
+
 
             //Act
             List<string> str = LinqUnit.ReturnDataCount(arr1);

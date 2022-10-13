@@ -12,20 +12,16 @@ namespace LinqUniTestTest
 
         public static List<string> ReturnDataCount(string[] list)
         {
-            List<string> list2 = new List<string>();
-            var lis = from a in list
-                      group a by a.Split('.')[1] into y
-                      select y;
+            List<string> str = new List<string>();
 
-            string extension;
-            int count;
-            foreach (var a in lis)
-            {   
-                extension = a.Key;
-                count = a.Count();
-                list2.Add($"{count} File(s) with {extension} Extension");
+            var set1 = new string[] { "X", "Y", "Z" };
+            var set2 = new int[] { 1, 2, 3 };
+            for (int i = 0; i < set1.Length; i++)
+            {
+                string s = (set1[i] + Convert.ToString(set2[i]));
+                str.Add(s);
             }
-            return list2;
+            return str;
         }
     }
 }
