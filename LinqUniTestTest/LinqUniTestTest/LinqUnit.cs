@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqUniTestTest
 {
@@ -7,20 +8,16 @@ namespace LinqUniTestTest
     {
         static void Main(string[] args) { }
 
-        public static List<string> ReturnDataCount(string[] list)
+        public static List<string> ReturnDataCount(List<string> listOfString)
         {
             List<string> str = new List<string>();
-            var set1 = new string[] { "X", "Y", "Z" };
-            var set2 = new int[] { 1, 2, 3 };
 
-            for (int t = 0; t < set1.Length; t++)
-            {
-                for (int i = 0; i < set2.Length; i++)
+            listOfString.Remove(listOfString.FirstOrDefault(i => i == "o"));
+
+                foreach (var item in listOfString)
                 {
-                    string s = (set1[t] + Convert.ToString(set2[i]));
-                    str.Add(s);
+                    str.Add(item);
                 }
-            }
             return str;
         }
     }
