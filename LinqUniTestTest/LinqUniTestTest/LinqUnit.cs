@@ -10,19 +10,22 @@ namespace LinqUniTestTest
     {
         static void Main(string[] args){}
 
-        public static List<int> DevideByTwo(int[] list)
+        public static List<string> ReturnDataCount(string[] list)
         {
-            List<int> li = new List<int>();
-            for (int i = 1; i < list.Length; i++)
-            {
-                if (list[i] % 2 == 0)
-                {
-                    li.Add(list[i]);
-                    Console.WriteLine(list[i]);
+            List<string> list2 = new List<string>();
+            var lis = from a in list
+                      group a by a.Split('.')[1] into y
+                      select y;
 
-                }
+            string extension;
+            int count;
+            foreach (var a in lis)
+            {   
+                extension = a.Key;
+                count = a.Count();
+                list2.Add($"{count} File(s) with {extension} Extension");
             }
-            return li;
+            return list2;
         }
     }
 }

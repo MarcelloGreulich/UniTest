@@ -10,11 +10,24 @@ namespace LinqUniTestTestTest
         public void TestMethod1()
         {
             //Arrange
-            int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            int[] expected = new int[] { 2, 4, 6, 8, 10 };
-            List<int> result = LinqUnit.DevideByTwo(arr);
-            CollectionAssert.AreEquivalent(expected, result);
-           // CollectionAssert.AreEqual(expected, result);
+            string[] arr1 = { "aaa.frx", "bbb.TXT", "xyz.dbf", "abc.pdf", "aaaa.PDF", "xyz.frt", "abc.xml", "ccc.txt", "zzz.txt" };
+
+            List<string> expected = new List<string>();
+            expected.Add("1 File(s) with frx Extension");
+            expected.Add("1 File(s) with TXT Extension");
+            expected.Add("1 File(s) with dbf Extension");
+            expected.Add("1 File(s) with pdf Extension");
+            expected.Add("1 File(s) with PDF Extension");
+            expected.Add("1 File(s) with frt Extension");
+            expected.Add("1 File(s) with xml Extension");
+            expected.Add("2 File(s) with txt Extension");
+
+            //Act
+            List<string> str = LinqUnit.ReturnDataCount(arr1);
+
+           //Assert
+            CollectionAssert.AreEquivalent(str, expected);
+            // CollectionAssert.AreEqual(expected, result);
         }
     }
 }
