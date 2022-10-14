@@ -8,17 +8,17 @@ namespace LinqUniTestTest
     {
         static void Main(string[] args) { }
 
-        public static List<int> SquareNo(int[] intArr)
+        public static List<string> Count(int[] intArr)
         {
-            List<int> str = new List<int>();
+            List<string> str = new List<string>();
 
-            var sqNo = from int Number in intArr
-                       let SqrNo = Number * Number
-                       where SqrNo > 20
-                       select SqrNo;
-
-            foreach (var a in sqNo)
-                str.Add(a);
+            var num = from int Number in intArr
+                      group Number by Number into n
+                      select n;
+            foreach (var a in num)
+            {
+                str.Add($"Number {a.Key} ist {a.Count()} vorhanden");
+            }
             return str;
         }
     }
