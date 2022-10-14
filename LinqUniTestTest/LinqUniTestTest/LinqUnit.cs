@@ -8,16 +8,17 @@ namespace LinqUniTestTest
     {
         static void Main(string[] args) { }
 
-        public static List<string> ReturnDataCount(List<string> listOfString)
+        public static List<int> SquareNo(int[] intArr)
         {
-            List<string> str = new List<string>();
+            List<int> str = new List<int>();
 
-            listOfString.Remove(listOfString.FirstOrDefault(i => i == "o"));
+            var sqNo = from int Number in intArr
+                       let SqrNo = Number * Number
+                       where SqrNo > 20
+                       select SqrNo;
 
-                foreach (var item in listOfString)
-                {
-                    str.Add(item);
-                }
+            foreach (var a in sqNo)
+                str.Add(a);
             return str;
         }
     }

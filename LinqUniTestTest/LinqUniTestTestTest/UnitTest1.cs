@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using LinqUniTestTest;
+using FluentAssertions;
 
 namespace LinqUniTestTestTest
 {
@@ -10,26 +11,21 @@ namespace LinqUniTestTestTest
         public void TestMethod1()
         {
             //Arrange
-            List<string> listOfString = new List<string>();
-            listOfString.Add("m");
-            listOfString.Add("n");
-            listOfString.Add("o");
-            listOfString.Add("p");
-            listOfString.Add("q");
+            var arr1 = new[] { 3, 9, 2, 8, 6, 5 };
 
-            List<string> expected = new List<string>();
-            expected.Add("m");
-            expected.Add("n");
-            expected.Add("p");
-            expected.Add("q");
-
+            List<int> expected = new List<int>();
+            expected.Add(81);
+            expected.Add(64);
+            expected.Add(36);
+            expected.Add(25);
 
             //Act
-            List<string> str = LinqUnit.ReturnDataCount(listOfString);
+            List<int> intArr = LinqUnit.SquareNo(arr1);
 
-           //Assert
-            CollectionAssert.AreEquivalent(str, expected);
-            // CollectionAssert.AreEqual(expected, result);
+            //Assert
+
+            intArr.Should().BeEquivalentTo(expected);
+
         }
     }
 }
