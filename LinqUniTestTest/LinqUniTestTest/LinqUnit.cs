@@ -8,17 +8,26 @@ namespace LinqUniTestTest
     {
         static void Main(string[] args) { }
 
-        public static List<string> Count(int[] intArr)
+        public static List<int> Count(int[] intArr)
         {
-            List<string> str = new List<string>();
+            List<int> str = new List<int>();
 
-            var num = from int Number in intArr
-                      group Number by Number into n
-                      select n;
-            foreach (var a in num)
-            {
-                str.Add($"Number {a.Key} ist {a.Count()} vorhanden");
+            List<int> list = new List<int>();
+
+
+            foreach (var item in intArr)
+            {      
+                list.Add(item);
             }
+
+            list.Sort();
+            list.Reverse();
+
+            foreach (var n in list)
+            {
+                str.Add(n);
+            }
+
             return str;
         }
     }
